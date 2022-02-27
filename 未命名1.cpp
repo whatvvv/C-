@@ -1,34 +1,39 @@
 #include<stdio.h>
-void bubblesort(int s[],int n)
-{
-	int i,j,temp;
-	for(i=0;i<n-1;i++)
-	{
-		for(j=0;j<n-i-1;j++)
-		{
-			if(s[j]>s[j+1])
-			{
-				temp=s[j];
-				s[j]=s[j+1];
-				s[j+1]=temp; 
-			}
-		}
-	}
-}
+#include<stdlib.h>
+#include<string>
 int main()
 {
-	int i;
-	int a[10];
-	for(i=0;i<10;i++)
+	char buf[1024];
+	char *strArray[1024];
+	char **pArray;
+	int i,arrayLen=0;
+	printf("sue"end"jishu:"\n);
+	while (l)
 	{
-	  scanf("%d",a[i]);
-    }   
-	bubblesort(a,10);
-	printf("after sort");
-	for(i=0;i<10;i++)
-	{
-		printf("%d",a[i]);
+		scanf("%s",buf);
+		if(strcmp(buf,"end")=0)
+		{
+			printf("½áÊøÊäÈë¡£\n");
+			break;
+		}
+		strArray[arrayLen]=(char*)malloc(strlen(buf)+1);
+		strrcpy(strArray[arrayLen],buf);
+		arrayLen++;
 	}
-	printf("\n");
+	pArray=(char**)malloc(sizeof(char*)*arrLen);
+	for(i=0;i<arrLen;i++)
+	{
+		*(pArray+i)=strArray[i];
+	}
+	printf("zhiqiandewenzi:\n");
+	for(i=0;i<arrayLen;i++)
+	{
+		printf("%s\n",*(pArray+i));
+	}
+	for(i=0;i<arrayLen;i++)
+	{
+		free(strArray[i]);
+	}
+	free(pArray);
 	return 0;
 }

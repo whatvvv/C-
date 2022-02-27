@@ -1,33 +1,39 @@
 #include<stdio.h>
-void bubblesort(int s[], int n)
-{
-	int i, j, temp;
-	for (i = 0; i < n - 1; i++)
-	{
-		for (j = 0; j < n - i - 1; j++)
-		{
-			if (s[j] > s[j + 1])
-			{
-				temp = s[j];
-				s[j + 1] = temp;
-			}
-		}
-	}
-}
+#include<stdlib.h>
+#include<string.h>
 int main()
 {
-	int i;
-	int a[10];
-	for (i = 0; i < 10; i++)
+	char buf[1024];
+	char *strArray[1024];
+	char **pArray;
+	int i,arrayLen=0;
+	printf("请输入学生姓名，以文字“end”结束:\n");
+	while (1)
 	{
-		scanf_s("%d", &a[i]);
+		scanf("%s",buf);
+		if(strcmp(buf,"end")==0)
+		{
+			printf("结束输入。\n");
+			break;
+		}
+		strArray[arrayLen]=(char*)malloc(strlen(buf)+1);
+		strcpy(strArray[arrayLen],buf);
+		arrayLen++;
 	}
-	bubblesort(a, 10);
-	printf("after sort");
-	for (i = 0; i < 10; i++)
+	pArray=(char**)malloc(sizeof(char*)*arrayLen);
+	for(i=0;i<arrayLen;i++)
 	{
-		printf("%d", a[i]);
+		*(pArray+i)=strArray[i];
 	}
-	printf("\n");
+	printf("您之前输入的文字:\n");
+	for(i=0;i<arrayLen;i++)
+	{
+		printf("%s\n",*(pArray+i));
+	}
+	for(i=0;i<arrayLen;i++)
+	{
+		free(strArray[i]);
+	}
+	free(pArray);
 	return 0;
 }
