@@ -14,15 +14,15 @@ void Student::study()
 }
 void Student::exam()
 {
-	cout<<"C++ sore is 100"<<endl;
+	cout<<"C++ score is 100"<<endl;
 }
 int main()
 {
 	Student stu;
 	stu._name="zhangsan";
-	stu._age=-20;
+	stu._age=20;
 	cout<<stu._name<<stu._age<<"sui"<<endl;
 	stu.study();
 	stu.exam();
-	return 0;
+	return 0; 
 }
